@@ -1,0 +1,10 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib/loongarch64-linux-gnu
+includedir=${prefix}/include
+
+Name: libyuv
+Description: YUV conversion and scaling functionality
+Version: 0.0.1888
+Libs: -L${libdir} -lyuv
+Cflags: -I${includedir}

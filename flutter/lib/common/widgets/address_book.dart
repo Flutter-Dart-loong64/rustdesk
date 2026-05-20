@@ -184,6 +184,10 @@ class _AddressBookState extends State<AddressBook> {
   }
 
   Widget _buildAbDropdown() {
+    final dropdownTextStyle = TextStyle(
+      fontFamily: isLinux ? MyTheme.linuxDefaultFontFamily : null,
+      fontFamilyFallback: MyTheme.cjkFontFallback,
+    );
     if (gFFI.abModel.legacyMode.value) {
       return Offstage();
     }
@@ -209,7 +213,9 @@ class _AddressBookState extends State<AddressBook> {
                 message: gFFI.abModel.translatedName(e),
                 child: Text(
                   gFFI.abModel.translatedName(e),
-                  style: button ? null : TextStyle(fontSize: 14.0),
+                  style: button
+                      ? dropdownTextStyle
+                      : dropdownTextStyle.copyWith(fontSize: 14.0),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   textAlign: button ? TextAlign.center : null,

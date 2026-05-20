@@ -2,14 +2,19 @@
 
 set -e
 
-case $1 in
+is_systemd() {
+    [ "$(basename "$(readlink -f /proc/1/exe 2>/dev/null)" 2>/dev/null)" = "systemd" ]
+}
+
+case "$1" in
     install|upgrade)
-		INITSYS=$(ls -al /proc/1/exe | awk -F' ' '{print $NF}' | awk -F'/' '{print $NF}')
-		if [ "systemd" == "${INITSYS}" ]; then
-			service rustdesk stop || true
-      sleep 1
-      rm -rf /usr/bin/libsciter-gtk.so
-		fi
+        if is_systemd; then
+            if systemctl --quiet is-active rustdesk.service 2>/dev/null; then
+                systemctl stop rustdesk.service >/dev/null 2>&1 || true
+            fi
+            sleep 1
+            rm -f /usr/bin/libsciter-gtk.so
+        fi
         ;;
 esac
 
