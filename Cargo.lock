@@ -4861,8 +4861,7 @@ dependencies = [
 [[package]]
 name = "mozjpeg-sys"
 version = "2.2.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ad3626d7942d5b56cc6d47b1c59724c0a976b786fca059c5aaa904aef6324d55"
+source = "git+https://github.com/Flutter-Dart-loong64/mozjpeg-sys.git?branch=loong64-2.2.2#c61c069f2121a1e8a54e22dadeacda2ca91b4b72"
 dependencies = [
  "cc",
  "dunce",

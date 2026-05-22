@@ -213,6 +213,7 @@ exclude = ["vdi/host", "examples/custom_plugin"]
 libxdo-sys = { path = "libs/libxdo-sys-stub" }
 nix023 = { package = "nix", git = "https://github.com/Flutter-Dart-loong64/nix.git", branch = "loong64-0.23.2" }
 nix025 = { package = "nix", git = "https://github.com/Flutter-Dart-loong64/nix.git", branch = "loong64-0.25.1" }
+mozjpeg-sys = { git = "https://github.com/Flutter-Dart-loong64/mozjpeg-sys.git", branch = "loong64-2.2.2" }
 
 [package.metadata.winres]
 LegalCopyright = "Copyright © 2025 Purslane Ltd. All rights reserved."
