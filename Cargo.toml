@@ -211,6 +211,8 @@ exclude = ["vdi/host", "examples/custom_plugin"]
 # This allows building and running on systems without libxdo installed (e.g., Wayland-only)
 [patch.crates-io]
 libxdo-sys = { path = "libs/libxdo-sys-stub" }
+nix023 = { package = "nix", git = "https://github.com/Flutter-Dart-loong64/nix.git", branch = "loong64-0.23.2" }
+nix025 = { package = "nix", git = "https://github.com/Flutter-Dart-loong64/nix.git", branch = "loong64-0.25.1" }
 
 [package.metadata.winres]
 LegalCopyright = "Copyright © 2025 Purslane Ltd. All rights reserved."
