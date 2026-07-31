@@ -248,6 +248,17 @@ class ColorThemeExtension extends ThemeExtension<ColorThemeExtension> {
 }
 
 class MyTheme {
+  static const String linuxDefaultFontFamily = 'Noto Sans CJK SC';
+
+  static const List<String> cjkFontFallback = <String>[
+    'Noto Sans CJK SC',
+    'Source Han Sans SC',
+    'WenQuanYi Micro Hei',
+    'Noto Sans CJK TC',
+    'Noto Sans CJK JP',
+    'Noto Sans CJK KR',
+  ];
+
   MyTheme._();
 
   static const Color grayBg = Color(0xFFEFEFF2);
@@ -375,13 +386,15 @@ class MyTheme {
     // https://stackoverflow.com/questions/77537315/after-upgrading-to-flutter-3-16-the-app-bar-background-color-button-size-and
     useMaterial3: false,
     brightness: Brightness.light,
+    fontFamily: isLinux ? linuxDefaultFontFamily : null,
+    fontFamilyFallback: isLinux ? cjkFontFallback : null,
     hoverColor: Color.fromARGB(255, 224, 224, 224),
     scaffoldBackgroundColor: Colors.white,
     dialogBackgroundColor: Colors.white,
     appBarTheme: AppBarTheme(
       shadowColor: Colors.transparent,
     ),
-    dialogTheme: DialogTheme(
+    dialogTheme: DialogThemeData(
       elevation: 15,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(18.0),
@@ -412,7 +425,7 @@ class MyTheme {
     cardColor: grayBg,
     hintColor: Color(0xFFAAAAAA),
     visualDensity: VisualDensity.adaptivePlatformDensity,
-    tabBarTheme: const TabBarTheme(
+    tabBarTheme: const TabBarThemeData(
       labelColor: Colors.black87,
     ),
     tooltipTheme: tooltipTheme(),
@@ -473,13 +486,15 @@ class MyTheme {
   static ThemeData darkTheme = ThemeData(
     useMaterial3: false,
     brightness: Brightness.dark,
+    fontFamily: isLinux ? linuxDefaultFontFamily : null,
+    fontFamilyFallback: isLinux ? cjkFontFallback : null,
     hoverColor: Color.fromARGB(255, 45, 46, 53),
     scaffoldBackgroundColor: Color(0xFF18191E),
     dialogBackgroundColor: Color(0xFF18191E),
     appBarTheme: AppBarTheme(
       shadowColor: Colors.transparent,
     ),
-    dialogTheme: DialogTheme(
+    dialogTheme: DialogThemeData(
       elevation: 15,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(18.0),
@@ -513,7 +528,7 @@ class MyTheme {
     ),
     cardColor: Color(0xFF24252B),
     visualDensity: VisualDensity.adaptivePlatformDensity,
-    tabBarTheme: const TabBarTheme(
+    tabBarTheme: const TabBarThemeData(
       labelColor: Colors.white70,
     ),
     tooltipTheme: tooltipTheme(),
@@ -3710,7 +3725,10 @@ class ComboBox extends StatelessWidget {
             style: TextStyle(
                 color: enabled
                     ? Theme.of(context).textTheme.titleMedium?.color
-                    : disabledTextColor(context, enabled)),
+                    : disabledTextColor(context, enabled),
+                fontFamily: isLinux ? MyTheme.linuxDefaultFontFamily : null,
+                fontFamilyFallback:
+                    isLinux ? MyTheme.cjkFontFallback : null),
             icon: const Icon(
               Icons.expand_more_sharp,
               size: 20,
@@ -3729,7 +3747,13 @@ class ComboBox extends StatelessWidget {
                 value: value,
                 child: Text(
                   value,
-                  style: const TextStyle(fontSize: 15),
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontFamily:
+                        isLinux ? MyTheme.linuxDefaultFontFamily : null,
+                    fontFamilyFallback:
+                        isLinux ? MyTheme.cjkFontFallback : null,
+                  ),
                   overflow: TextOverflow.ellipsis,
                 ).marginOnly(left: 15),
               );

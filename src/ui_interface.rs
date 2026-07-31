@@ -188,8 +188,12 @@ pub fn use_texture_render() -> bool {
         && LocalConfig::get_option(config::keys::OPTION_TEXTURE_RENDER) == "Y";
 
     #[cfg(target_os = "linux")]
-    return cfg!(feature = "flutter")
-        && LocalConfig::get_option(config::keys::OPTION_TEXTURE_RENDER) != "N";
+    {
+        let option = LocalConfig::get_option(config::keys::OPTION_TEXTURE_RENDER);
+        let default_enabled = !cfg!(target_arch = "loongarch64");
+        return cfg!(feature = "flutter")
+            && texture_render_enabled(option.as_str(), default_enabled);
+    }
 
     #[cfg(target_os = "windows")]
     {
@@ -206,6 +210,34 @@ pub fn use_texture_render() -> bool {
         } else {
             return LocalConfig::get_option(config::keys::OPTION_TEXTURE_RENDER) == "Y";
         }
+    }
+}
+
+#[cfg(target_os = "linux")]
+fn texture_render_enabled(option: &str, default_enabled: bool) -> bool {
+    if default_enabled {
+        option != "N"
+    } else {
+        option == "Y"
+    }
+}
+
+#[cfg(all(test, target_os = "linux"))]
+mod texture_render_tests {
+    use super::texture_render_enabled;
+
+    #[test]
+    fn texture_render_respects_enabled_default() {
+        assert!(texture_render_enabled("", true));
+        assert!(texture_render_enabled("Y", true));
+        assert!(!texture_render_enabled("N", true));
+    }
+
+    #[test]
+    fn texture_render_requires_opt_in_when_disabled_by_default() {
+        assert!(!texture_render_enabled("", false));
+        assert!(texture_render_enabled("Y", false));
+        assert!(!texture_render_enabled("N", false));
     }
 }
 
