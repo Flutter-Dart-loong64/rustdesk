@@ -4476,7 +4476,7 @@ dependencies = [
 name = "libc"
 version = "0.2.171"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c19937216e9d3aa9956d9bb8dfc0b0c8beb6058fc4f7a4dc4d850edf86a237d6"
+checksum = "66d066d3cad715c09497a4c1c0762aa1449d2635719db362603bd949cec4f28d"
 
 [[package]]
 name = "libdbus-sys"
@@ -4643,25 +4643,25 @@ checksum = "dd1bc4d24ad230d21fb898d1116b1801d7adfc449d42026475862ab48b11e70e"
 name = "linux-raw-sys"
 version = "0.3.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ef53942eb7bf7ff43a617b3e2c1c4a5ecf5944a7c1bc12d7ee39bbb15e5c1519"
+checksum = "f8c4cb4d76ec3de31705798fee96b634a4e3e36fefc1d938b1b5c9771c58e172"
 
 [[package]]
 name = "linux-raw-sys"
 version = "0.4.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "78b3ae25bc7c8c38cec158d1f2757ee79e9b3740fbc7ccf0e59e4b08d793fa89"
+checksum = "8c8356d8a583478fe3562874d44281ce3392f8f9963ccc227778540790c51287"
 
 [[package]]
 name = "linux-raw-sys"
 version = "0.6.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2a385b1be4e5c3e362ad2ffa73c392e53f031eaa5b7d648e64cd87f27f6063d7"
+checksum = "2500c0fae1bfcfe6135a23114f01771f5bac3e2f106b627f4f8a01fd51cad73b"
 
 [[package]]
 name = "linux-raw-sys"
 version = "0.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "df1d3c3b53da64cf5760482273a98e575c651a67eec7f77df96b5b642de8f039"
+checksum = "2f0ef0d3f8fa4fe6f06dc8bdceb03322327c16cee6ed6ffb6b5c63fdb1190dc0"
 
 [[package]]
 name = "lock_api"
@@ -5118,7 +5118,7 @@ dependencies = [
 name = "nix"
 version = "0.26.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "598beaf3cc6fdd9a5dfb1630c2800c7acd31df7aaf0f565796fba2b53ca1af1b"
+checksum = "54971e2054555c749261a3fbb9fdac616881d491158229bf66a5111c829d0a9c"
 dependencies = [
  "bitflags 1.3.2",
  "cfg-if 1.0.0",
@@ -7433,7 +7433,7 @@ dependencies = [
 name = "rustix"
 version = "0.38.34"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "70dc5ec042f7a43c4a73241207cecc9873a06d45debb38b329f8541d85c2730f"
+checksum = "0e1efaac7dd0f30cc84a1a5cc03546630cf640654ad98773b359a9f67b2a9f25"
 dependencies = [
  "bitflags 2.9.1",
  "errno",
@@ -7446,7 +7446,7 @@ dependencies = [
 name = "rustix"
 version = "1.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cd15f8a2c5551a84d56efdc1cd049089e409ac19a3072d5037a17fd70719ff3e"
+checksum = "918671fcdfa37fb500b261300133c9268a363e448f569b72e5609f4783027fe1"
 dependencies = [
  "bitflags 2.9.1",
  "errno",
